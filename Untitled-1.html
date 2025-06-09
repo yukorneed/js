@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">js</h1>
+    <ul id="cars"></ul>
+    <ul id="fruits"></ul>
+    <script>
+        person ={};
+        console.log(person);
+        person.name = 'cj';
+        person.cars = ["supra","pruis","panamera"];
+        person.fruits = ["apple","cherry","orange","lemon","grape"];
+        let fruitlist = document.getElementById("fruits");
+        console.log(fruitlist);
+        person.fruits.forEach(function(item1){
+            let li1 = document.createElement("li");
+            li1.textContent = item1;
+            fruitlist.appendChild(li1);
+            
+        });
+
+        let list = document.getElementById("cars");
+        console.log(list);
+        for(let item of person.cars){
+             let li = document.createElement("li");
+             li.textContent = item;
+             list.appendChild(li);
+        }
+    </script>
+    
+</body>
+</html>
