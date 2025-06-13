@@ -1,39 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #div {
+        background-color: aquamarine;
+        width: 250px;
+        height: 250px;
+    }
+
+    #input {
+        display: none;
+    }
+</style>
 
 <body>
-    <h1 id="title">js</h1>
-    <ul id="cars"></ul>
-    <ul id="fruits"></ul>
+    <img id="zurag" src="download1.jfif" alt="">
+
+    <div id="div">
+
+    </div>
+    <h1 id="title">my car</h1>
+    <ul id="car_details">Details</ul>
+    <button id="button">alert button</button><br><br>
+    <input id="input" type="text" placeholder="switch car">
+
     <script>
-        person ={};
-        console.log(person);
-        person.name = 'cj';
-        person.cars = ["supra","pruis","panamera"];
-        person.fruits = ["apple","cherry","orange","lemon","grape"];
-        let fruitlist = document.getElementById("fruits");
-        console.log(fruitlist);
-        person.fruits.forEach(function(item1){
-            let li1 = document.createElement("li");
-            li1.textContent = item1;
-            fruitlist.appendChild(li1);
-            
+        my_car = {};
+        my_car.brand = 'toyota';
+        my_car.name = "supra";
+        my_car.details = ["350km/h", "2 doors", "white", "2002"];
+
+
+        let list = document.getElementById("car_details");
+        console.log(list);
+        for (let item of my_car.details) {
+            let li = document.createElement("li");
+            li.textContent = item;
+            list.appendChild(li);
+        }
+        var title = document.getElementById('title').innerHTML;
+        var CarName = title + my_car.brand + my_car.name;
+        document.getElementById('title').innerHTML = CarName;
+
+        const eventButton = document.getElementById('title');
+        eventButton.addEventListener("click", clicked);
+        function clicked() {
+            alert('who are  you?');
+        }
+        const eventButton1 = document.getElementById('button');
+        eventButton1.addEventListener("click", function () {
+            document.getElementById('input').style.display = 'block';
+        });
+        const switchcar = document.getElementById('input');
+        switchcar.addEventListener("input", function () {
+            eventButton.textContent = "My car:" + switchcar.value;
+        });
+        const changecolor = document.getElementById('div');
+        //const changed = document.getElementById('div');
+        changecolor.addEventListener("dblclick", function () {
+            document.getElementById('div').style.backgroundColor = "black";
+        });
+        const picture = document.getElementById('zurag');
+        picture.addEventListener("mouseover", function () {
+            picture.src = "download2.jfif";
+        });
+        picture.addEventListener("mouseout", function () {
+            picture.src = "download1.jfif";
         });
 
-        let list = document.getElementById("cars");
-        console.log(list);
-        for(let item of person.cars){
-             let li = document.createElement("li");
-             li.textContent = item;
-             list.appendChild(li);
-        }
     </script>
-    
+
 </body>
+
 </html>
